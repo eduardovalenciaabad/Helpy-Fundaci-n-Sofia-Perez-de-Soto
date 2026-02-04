@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Alianza Estratégica | Helpy + Fundación Saldarriaga Concha</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        helpy: {
+                            light: '#4CC9F0', // Light Blue/Cyan
+                            DEFAULT: '#4361EE', // Blue
+                            dark: '#3A0CA3', // Dark Blue
+                            teal: '#2DD4BF', // Teal
+                            green: '#10B981', // Green
+                        },
+                        foundation: {
+                            orange: '#F77F00', // Accent for contrast
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'glow': '0 0 20px rgba(45, 212, 191, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+            color: #1F2937;
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #4361EE, #2DD4BF);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(#4361EE 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.03;
+        }
+    </style>
+</head>
+
+<body class="antialiased scroll-smooth">
+
+    <!-- SECTION 1: HERO (The Hook) -->
+    <section
+        class="relative min-h-[90vh] flex flex-col justify-center items-center px-6 py-20 text-center overflow-hidden bg-white">
+        <div class="absolute inset-0 hero-pattern pointer-events-none"></div>
+
+        <!-- Logos -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mb-16 animate-fade-in-up">
+            <div
+                class="h-24 md:h-28 flex items-center justify-center transition-transform hover:scale-105 duration-300">
+                <img src="./logo_helpy.png" alt="Logo Helpy" class="max-h-full w-auto object-contain drop-shadow-sm">
+            </div>
+
+            <div class="text-3xl text-gray-300 font-light hidden md:block">+</div>
+            <div class="w-full h-px bg-gray-200 md:hidden"></div>
+
+            <div
+                class="h-24 md:h-28 flex items-center justify-center transition-transform hover:scale-105 duration-300">
+                <img src="./logo_saldarriaga.png" alt="Logo Fundación Saldarriaga Concha"
+                    class="max-h-full w-auto object-contain drop-shadow-sm">
+            </div>
+        </div>
+
+        <!-- Copy -->
+        <div class="max-w-4xl mx-auto space-y-6 relative z-10">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold leading-tight text-gray-900">
+                HELPY + Fundación Saldarriaga Concha
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+                "Transformando la preocupación en comprensión y la angustia en herramientas prácticas."
+            </p>
+
+            <div
+                class="inline-block mt-8 px-6 py-2 bg-helpy-light/10 text-helpy-dark font-medium rounded-full border border-helpy-light/20 tracking-wide uppercase text-sm">
+                Tecnología + Rigor Científico + Calor Humano
+            </div>
+        </div>
+
+        <!-- Decorative Blobs -->
+        <div class="absolute -z-10 w-full h-full top-0 left-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-teal-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT US (Who are we?) -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-helpy font-semibold tracking-wider text-sm uppercase block mb-2">Sobre Nosotros</span>
+                <h2 class="font-heading text-4xl font-bold text-gray-900">¿Qué es Helpy?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Helpy es un <strong class="text-helpy-dark">centro operativo de salud preventiva y educación
+                            integral</strong> para padres, cuidadores y familias. Nace como respuesta a una realidad
+                        clara: hoy las familias tienen más información que nunca, pero también más miedo, confusión y
+                        soledad.
+                    </p>
+                    <div class="bg-white p-6 rounded-xl shadow-soft border-l-4 border-helpy">
+                        <p class="text-gray-600 italic">"No buscamos reemplazar al médico, sino acompañar el día a día,
+                            antes de que los problemas se agranden."</p>
+                    </div>
+                </div>
+
+                <div class="grid gap-6">
+                    <div class="bg-white p-8 rounded-2xl shadow-card hover:shadow-lg transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Misión</h3>
+                        <p class="text-gray-600">Empoderar a padres y cuidadores para que acompañen el crecimiento de
+                            sus hijos con información confiable y una mirada empática.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-card hover:shadow-lg transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Visión</h3>
+                        <p class="text-gray-600">Convertir a Helpy en la plataforma de referencia en salud preventiva en
+                            Latinoamérica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: OUR SPECIALTIES (The 4 Axes) -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">Nuestros 4 Ejes de
+                Especialidad</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-100 group">
+                    <div
+                        class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Endocrinología Pediátrica</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Cambios hormonales, crecimiento, pubertad y
+                        desarrollo físico.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-green-100 group">
+                    <div
+                        class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Nutrición y Buenos Hábitos</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Alimentación según la etapa, sueño, ejercicio y
+                        prevención de trastornos alimentarios (TCA).</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-purple-100 group">
+                    <div
+                        class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Salud Mental</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Ansiedad, depresión, manejo emocional, autoestima y
+                        uso de tecnología.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-pink-100 group">
+                    <div
+                        class="w-14 h-14 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Salud Reproductiva</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Educación sexual basada en evidencia, prevención,
+                        límites y consentimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SERVICES & TECH (The "How") -->
+    <section class="py-20 px-6 bg-helpy text-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-16">¿Cómo lo hacemos?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Feature 1 -->
+                <div class="flex gap-6 p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <div class="shrink-0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white text-helpy flex items-center justify-center font-bold text-xl">
+                            1</div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Plataforma con IA</h4>
+                        <p class="text-blue-100">Quiz personalizado que despliega cursos y +500 microcápsulas educativas
+                            de alto impacto (1-5 min).</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex gap-6 p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <div class="shrink-0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white text-helpy flex items-center justify-center font-bold text-xl">
+                            2</div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Acompañamiento</h4>
+                        <p class="text-blue-100">Acceso a profesionales de la salud y herramientas prácticas para el día
+                            a día.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex gap-6 p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <div class="shrink-0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white text-helpy flex items-center justify-center font-bold text-xl">
+                            3</div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Comunidad Helpy</h4>
+                        <p class="text-blue-100">Espacios de conversación para generar sentido de pertenencia.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="flex gap-6 p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <div class="shrink-0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-white text-helpy flex items-center justify-center font-bold text-xl">
+                            4</div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Phygital (Eventos)</h4>
+                        <p class="text-blue-100">Experiencias presenciales y virtuales de alto impacto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: THE TEAM & VALIDATION (Authority) -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Dr. Abad Highlight -->
+            <div
+                class="bg-white rounded-3xl p-8 md:p-12 shadow-soft flex flex-col md:flex-row items-center gap-12 mb-20">
+                <div class="w-48 h-48 shrink-0 relative">
+                    <!-- Placeholder Photo -->
+                    <img src="https://via.placeholder.com/400x400?text=Dra.+Verónica+Abad" alt="Dra. Verónica Abad"
+                        class="w-full h-full object-cover rounded-full shadow-lg border-4 border-white ring-2 ring-helpy-light">
+                    <div class="absolute bottom-2 right-2 bg-helpy text-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-helpy font-bold tracking-wide text-sm uppercase mb-2 block">Dirección
+                        Científica</span>
+                    <h3 class="font-heading text-3xl font-bold text-gray-900 mb-4">Dra. Verónica Abad</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        "Médica Endocrinóloga pediatra con más de 20 años de experiencia. Garantiza la calidad médica,
+                        científica y ética de todos los contenidos."
+                    </p>
+                    <div class="w-full h-px bg-gray-100 mb-6"></div>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <p><strong>Liderado por:</strong> Sofía Valencia (Visión Estratégica) y Eduardo Valencia
+                            (Expansión & Alianzas).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Logos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- EAFIT -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <p class="text-xs text-gray-500 font-semibold uppercase mb-4">Ganadores: Mejor Startup</p>
+                    <div class="h-16 flex items-center justify-center">
+                        <img src="https://via.placeholder.com/200x80?text=Universidad+EAFIT" alt="Universidad EAFIT"
+                            class="max-h-full grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+                    </div>
+                    <p class="text-xs text-green-600 mt-4 font-medium">(Entre 300 empresas)</p>
+                </div>
+
+                <!-- START -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <p class="text-xs text-gray-500 font-semibold uppercase mb-4">Acelerados por</p>
+                    <div class="h-16 flex items-center justify-center">
+                        <img src="./assets/logos/start-fellowship.png" alt="START Fellowship"
+                            class="max-h-full grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+                    </div>
+                    <p class="text-xs text-blue-600 mt-4 font-medium">Suiza</p>
+                </div>
+
+                <!-- Gob Antioquia -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
+                    <p class="text-xs text-gray-500 font-semibold uppercase mb-4">Aliados Institucionales</p>
+                    <div class="h-16 flex items-center justify-center">
+                        <img src="https://via.placeholder.com/200x80?text=Gobernación+de+Antioquia"
+                            alt="Gobernación de Antioquia"
+                            class="max-h-full grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+                    </div>
+                    <p class="text-xs text-gray-500 mt-4 font-medium">Salud Pública</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: STRATEGIC ARGUMENT (Why Us?) -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-center text-gray-900 mb-16">¿Por qué Helpy es el
+                aliado estratégico ideal?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Argument 1 -->
+                <div class="p-8 rounded-2xl bg-blue-50 border border-blue-100">
+                    <div
+                        class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xl mb-6">
+                        1</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Cobertura sin barreras</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Cobertura territorial sin barreras. Llegamos a municipios apartados donde no hay especialistas,
+                        democratizando la salud con solo un dispositivo.
+                    </p>
+                </div>
+
+                <!-- Argument 2 -->
+                <div class="p-8 rounded-2xl bg-teal-50 border border-teal-100">
+                    <div
+                        class="w-12 h-12 bg-teal-600 text-white rounded-lg flex items-center justify-center font-bold text-xl mb-6">
+                        2</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Prevención Real</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        La salud curativa es costosa. Helpy educa antes de la crisis, reduciendo costos a mediano plazo
+                        y actuando antes de llegar a urgencias.
+                    </p>
+                </div>
+
+                <!-- Argument 3 -->
+                <div class="p-8 rounded-2xl bg-indigo-50 border border-indigo-100">
+                    <div
+                        class="w-12 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold text-xl mb-6">
+                        3</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Datos & IA</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Personalizamos rutas educativas y obtenemos datos agregados para entender las necesidades reales
+                        de la población.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: THE EVENT (Upcoming FOMO) -->
+    <section class="py-20 px-6 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+        </div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span
+                class="bg-foundation-orange text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block">Próximamente
+                - Mayo 2026</span>
+
+            <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6">Helpy 2.0: "Adolescencia en modo vida real"
+            </h2>
+            <p class="text-2xl text-blue-300 font-light italic mb-12">"¿Y si apagamos el wifi para encender la
+                conversación?"</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto mb-12">
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-md">
+                    <h4 class="font-bold text-lg mb-2 text-foundation-orange">Meta</h4>
+                    <p>Reunir a +600 asistentes presenciales y vincular a 8 instituciones aliadas.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-md">
+                    <h4 class="font-bold text-lg mb-2 text-foundation-orange">Temáticas</h4>
+                    <p>Riesgos digitales, Ansiedad/Depresión temprana, Crecimiento y Trastornos de conducta alimentaria.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: THE PILOT PROPOSAL (The Deal) -->
+    <section class="py-24 px-6 bg-gradient-to-br from-helpy to-helpy-dark text-white">
+        <div class="max-w-5xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl text-gray-900">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-helpy-dark mb-4">Propuesta de Vinculación
+                </h2>
+                <h3 class="text-xl text-gray-500 font-medium">Helpy + Fundación Saldarriaga Concha</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-4 border-b pb-2">El Plan</h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        Implementación de Helpy en una población de familias beneficiarias de sus aliados (ej. Fundación
+                        Atención a la Niñez).
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-4 border-b pb-2">Sostenibilidad Económica</h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        Modelo escalable de bajo costo (aprox 1.000 COP/usuario en volumen) para garantizar impacto
+                        masivo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h4 class="text-center font-bold text-gray-900 mb-6">KPIs de Impacto</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-gray-900 uppercase">Promoción</span>
+                            <span class="text-gray-600 text-sm">Resiliencia, Compasión, Prosocialidad.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-gray-900 uppercase">Prevención</span>
+                            <span class="text-gray-600 text-sm">Depresión, Ansiedad, Estrés.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: CALL TO ACTION -->
+    <section class="py-20 px-6 text-center bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-10 leading-tight">
+                "Demostremos que el impacto social puede ser rentable y sostenible."
+            </h2>
+
+            <button
+                class="group relative inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white transition-all duration-300 bg-helpy rounded-full hover:bg-helpy-dark hover:shadow-glow hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-helpy/30">
+                Iniciar Conversación para Piloto
+                <svg class="w-6 h-6 ml-3 -mr-1 transition-transform group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 border-t border-gray-200 text-center">
+        <div class="flex justify-center items-center gap-6 opacity-50 mb-4">
+            <img src="./logo_helpy.png" alt="Helpy" class="h-8 grayscale">
+            <span class="text-xl">+</span>
+            <img src="./logo_saldarriaga.png" alt="Saldarriaga" class="h-8 grayscale">
+        </div>
+        <p class="text-gray-400 text-sm">© 2026 Helpy. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

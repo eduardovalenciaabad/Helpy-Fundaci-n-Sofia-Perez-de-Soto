@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D69E2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C05621;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#grad4)"/>
+  <text x="200" y="180" font-size="24" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">
+    rural-04.jpg
+  </text>
+  <text x="200" y="220" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial">
+    Madre consultando nutrición
+  </text>
+  <text x="200" y="380" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Arial">
+    Reemplaza con tu imagen
+  </text>
+</svg>
