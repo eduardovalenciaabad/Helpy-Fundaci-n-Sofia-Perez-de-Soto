@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpy + Fundación Sofía Pérez de Soto | Conectando Propósitos</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Helpy Palette */
+            --color-green: #2F855A;
+            --color-green-light: #C6F6D5;
+            --color-pink: #D53F8C;
+            --color-pink-light: #FED7E2;
+            --color-baby-blue: #BFDBFE;
+            --color-mustard: #D69E2E;
+
+            /* Foundation / Neutral */
+            --color-dark: #1A202C;
+            --color-gray: #4A5568;
+            --color-light: #F7FAFC;
+            --color-white: #FFFFFF;
+
+            /* UI */
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            overflow: hidden;
+            /* Prevent default scroll */
+        }
+
+        /* Scroll Snap Container */
+        main {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Slide Common Styles */
+        section.slide {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        /* Header / Logo Placeholders */
+        .slide-header {
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .slide-header img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-green), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--color-dark);
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--color-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Utility Classes */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--color-light) 0%, rgba(213, 63, 140, 0.05) 100%);
+        }
+
+        /* Slide 1: Portada */
+        #slide-1 {
+            background: url('assets/photos/hero_father_teen.png') no-repeat center center/cover;
+        }
+
+        #slide-1::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.2));
+        }
+
+        /* Slide 2: Contexto (Infographic) */
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--color-pink);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Slide 3: Solution */
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--color-green);
+        }
+
+        /* Slide 4: Ejes */
+        .pillar-card {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pillar-img {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        /* Slide 5: Evento Ticket */
+        .ticket {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .ticket-left {
+            padding: 3rem;
+            flex: 2;
+            border-right: 2px dashed #dedede;
+            position: relative;
+        }
+
+        .ticket-right {
+            padding: 3rem;
+            flex: 1;
+            background: var(--color-green);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .ticket-right::before,
+        .ticket-right::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: var(--color-light);
+            border-radius: 50%;
+            position: absolute;
+            left: -15px;
+        }
+
+        .ticket-right::before {
+            top: -15px;
+        }
+
+        .ticket-right::after {
+            bottom: -15px;
+        }
+
+        /* Slide 6: Vinculación 1 */
+        .price-tier {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .price-tier.diamond {
+            transform: scale(1.05);
+            border: 2px solid var(--color-pink);
+            position: relative;
+        }
+
+        .price-tier.diamond::after {
+            content: 'MEJOR VALOR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-pink);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Slide 7: Pilot */
+        .highlight-box {
+            background: var(--color-green-light);
+            color: var(--color-green);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Slide 8: Match */
+        .match-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .match-connector {
+            height: 10px;
+            background: linear-gradient(90deg, var(--color-green), var(--color-pink));
+            flex: 1;
+            margin: 0 -20px;
+            z-index: 1;
+        }
+
+        /* Slide 9: CTA */
+        .btn-cta {
+            background: linear-gradient(90deg, var(--color-green), var(--color-pink));
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(213, 63, 140, 0.3);
+            transition: transform 0.2s;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Floating elements animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 2s;
+        }
+
+        .delay-2 {
+            animation-delay: 4s;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--color-green);
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-dots">
+        <a href="#slide-1" class="dot active"></a>
+        <a href="#slide-2" class="dot"></a>
+        <a href="#slide-3" class="dot"></a>
+        <a href="#slide-4" class="dot"></a>
+        <a href="#slide-5" class="dot"></a>
+        <a href="#slide-6" class="dot"></a>
+        <a href="#slide-7" class="dot"></a>
+        <a href="#slide-8" class="dot"></a>
+        <a href="#slide-9" class="dot"></a>
+    </div>
+
+    <main>
+        <!-- SLIDE 1: PORTADA IMPACTANTE -->
+        <section id="slide-1" class="slide">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy Logo">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png"
+                    alt="Fundación Sofía Pérez de Soto">
+            </div>
+            <div class="container slide-content">
+                <div class="glass-card" style="max-width: 600px;">
+                    <p
+                        style="text-transform: uppercase; letter-spacing: 2px; font-weight: bold; color: var(--color-green); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                        Propuesta de Vinculación Estratégica</p>
+                    <h1>Conectando Propósitos</h1>
+                    <h2 style="font-size: 2rem; color: var(--color-gray); font-weight: 400;">Tecnología y Humanidad para
+                        el Futuro de Antioquia</h2>
+                    <p style="margin-bottom: 0;">Evento Helpy 2.0 & Plan Piloto de Salud Preventiva</p>
+                </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div class="floating"
+                style="position: absolute; top: 20%; right: 10%; width: 100px; height: 100px; background: var(--color-green-light); border-radius: 50%; filter: blur(40px); opacity: 0.6;">
+            </div>
+            <div class="floating delay-1"
+                style="position: absolute; bottom: 15%; left: 10%; width: 150px; height: 150px; background: var(--color-pink-light); border-radius: 50%; filter: blur(50px); opacity: 0.5;">
+            </div>
+        </section>
+
+        <!-- SLIDE 2: CONTEXTO (EL PROBLEMA) -->
+        <section id="slide-2" class="slide bg-gradient">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <div class="text-center">
+                    <h2>La Realidad que no Podemos Ignorar</h2>
+                    <p style="max-width: 800px; margin: 0 auto 3rem auto;">Antioquia necesita herramientas escalables
+                        para llegar a cada hogar antes de que los problemas detonen.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div style="display: grid; gap: 1.5rem;">
+                        <div class="stat-card">
+                            <div class="stat-number">Info vs. Soledad</div>
+                            <p style="margin:0;">"Las familias tienen más información que nunca, pero sienten más miedo
+                                y soledad."</p>
+                        </div>
+                        <div class="stat-card" style="border-left-color: var(--color-mustard);">
+                            <div class="stat-number" style="color: var(--color-mustard);">La Brecha</div>
+                            <p style="margin:0;">El sistema de salud es <strong>REACTIVO</strong> (cura), no
+                                <strong>PREVENTIVO</strong> (educa).</p>
+                        </div>
+                    </div>
+                    <div class="glass-card text-center floating delay-2">
+                        <img src="Logos Helpy/Icono salud mental.png" alt="Riesgo"
+                            style="height: 100px; margin-bottom: 1rem;">
+                        <h3 style="color: var(--color-pink); margin-bottom: 1rem;">Riesgos Crecientes</h3>
+                        <ul style="text-align: left; list-style: none; padding-left: 2rem;">
+                            <li style="margin-bottom: 0.5rem;">⚠ Ansiedad y Depresión</li>
+                            <li style="margin-bottom: 0.5rem;">⚠ Trastornos de Conducta Alimentaria</li>
+                            <li style="margin-bottom: 0.5rem;">⚠ Ciberacoso y Grooming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: ¿QUÉ ES HELPY? -->
+        <section id="slide-3" class="slide">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h2 style="font-size: 3.5rem;">Somos un Centro Operativo de Salud Preventiva impulsado por IA
+                        </h2>
+                        <p>Transformamos la preocupación en herramientas prácticas. No reemplazamos al médico,
+                            acompañamos el día a día.</p>
+
+                        <div style="margin-top: 3rem;">
+                            <div style="display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem;">
+                                <div class="feature-icon">🔬</div>
+                                <div>
+                                    <h3>Rigor Científico</h3>
+                                    <p style="font-size: 1rem; margin:0;">Liderado por Dra. Verónica Abad (Endocrinóloga
+                                        Pediátrica).</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem;">
+                                <div class="feature-icon">🤖</div>
+                                <div>
+                                    <h3>Tecnología Exponencial</h3>
+                                    <p style="font-size: 1rem; margin:0;">IA que personaliza la educación para cada
+                                        familia.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: start;">
+                                <div class="feature-icon">📉</div>
+                                <div>
+                                    <h3>Accesibilidad Radical</h3>
+                                    <p style="font-size: 1rem; margin:0;">Salud de alta calidad a <strong>$1.000
+                                            COP/usuario</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center floating">
+                        <img src="assets/photos/rural-hero-01.jpg" alt="Helpy App"
+                            style="border-radius: 20px; box-shadow: var(--shadow); max-width: 80%; transform: rotate(-3deg);">
+                        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                            <span class="highlight-box" style="background:white; border:1px solid #eee;">🏆 Mejor
+                                Startup EAFIT</span>
+                            <span class="highlight-box" style="background:white; border:1px solid #eee;">🇨🇭 START
+                                Fellowship</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: EJES DE ACCIÓN -->
+        <section id="slide-4" class="slide bg-gradient">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2>Nuestros Ejes de Acción</h2>
+                    <p>Alineados con la misión de la Fundación: <strong>Educar para el progreso & Habilitar para la
+                            vida</strong></p>
+                </div>
+
+                <div class="grid-4">
+                    <div class="glass-card pillar-card">
+                        <img src="Logos Helpy/Icono salud mental.png" alt="Mental" class="pillar-img">
+                        <h3 style="color: #2B6CB0; font-size: 1.25rem;">Salud Mental</h3>
+                        <p style="font-size: 1rem;">Ansiedad, depresión, autoestima.</p>
+                    </div>
+                    <div class="glass-card pillar-card delay-1">
+                        <img src="Logos Helpy/Icono endocrino.png" alt="Endocrino" class="pillar-img">
+                        <h3 style="color: var(--color-mustard); font-size: 1.25rem;">Endocrino & Metabolismo</h3>
+                        <p style="font-size: 1rem;">Crecimiento, pubertad.</p>
+                    </div>
+                    <div class="glass-card pillar-card delay-2">
+                        <img src="Logos Helpy/Icono Nutricion.png" alt="Nutricion" class="pillar-img">
+                        <h3 style="color: var(--color-green); font-size: 1.25rem;">Nutrición & Hábitos</h3>
+                        <p style="font-size: 1rem;">Prevención TCA, sueño.</p>
+                    </div>
+                    <div class="glass-card pillar-card">
+                        <img src="Logos Helpy/Icono salud reproductiva.png" alt="Reproductiva" class="pillar-img">
+                        <h3 style="color: var(--color-pink); font-size: 1.25rem;">Salud Reproductiva</h3>
+                        <p style="font-size: 1rem;">Diversidad, prevención ETS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: EL HITO 2026 -->
+        <section id="slide-5" class="slide">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <h2 class="text-center">El Hito 2026</h2>
+                <div class="ticket floating">
+                    <div class="ticket-left">
+                        <p
+                            style="text-transform: uppercase; color: var(--color-pink); font-weight: bold; letter-spacing: 2px;">
+                            Adolescencia en Modo Vida Real</p>
+                        <h3 style="font-size: 2.5rem; margin: 1rem 0;">Evento Anual Helpy 2.0</h3>
+                        <p><strong>Objetivo:</strong> Educar, prevenir y generar comunidad.</p>
+
+                        <div style="margin-top: 2rem;">
+                            <p style="margin-bottom: 0.5rem;"><strong>Speakers de Lujo:</strong></p>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span
+                                    style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">Dr.
+                                    Rommel Andrade</span>
+                                <span
+                                    style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">Dra.
+                                    Verónica Abad</span>
+                                <span
+                                    style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">Juliana
+                                    Ramirez</span>
+                                <span
+                                    style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">Carlos
+                                    López</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ticket-right">
+                        <div style="font-size: 3rem; font-weight: bold;">MAYO</div>
+                        <div style="font-size: 1.5rem;">2026</div>
+                        <hr style="width: 50%; opacity: 0.5; margin: 1rem 0;">
+                        <div>📍 U. CES / Cámara Comercio</div>
+                        <div style="margin-top: 1rem; font-size: 0.9rem;">+600 Presenciales<br>+1M Visualizaciones</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: VINCULACIÓN 1 -->
+        <section id="slide-6" class="slide bg-gradient">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <h2 class="text-center">Ser Protagonistas del Cambio</h2>
+                <p class="text-center">Su Marca en el Corazón de la Conversación</p>
+
+                <div class="grid-2" style="align-items: stretch; max-width: 900px; margin: 0 auto;">
+                    <!-- Gold -->
+                    <div class="price-tier">
+                        <h3 style="color: var(--color-mustard);">Opción ORO</h3>
+                        <div style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0;">$25M <span
+                                style="font-size: 1rem; font-weight: normal; color: #999;">COP</span></div>
+                        <ul style="text-align: left; list-style: none; padding: 0 1rem; line-height: 2;">
+                            <li>✔ Stand Estándar o activación</li>
+                            <li>✔ Logo en material oficial y redes</li>
+                            <li>✔ Mención verbal y Kit Digital</li>
+                            <li>✔ 200 Entradas</li>
+                        </ul>
+                    </div>
+
+                    <!-- Diamond -->
+                    <div class="price-tier diamond">
+                        <h3 style="color: var(--color-pink);">Opción DIAMANTE</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-pink);">CO-CREADOR</p>
+                        <div style="font-size: 3rem; font-weight: bold; margin: 1rem 0;">$50M <span
+                                style="font-size: 1rem; font-weight: normal; color: #999;">COP</span></div>
+                        <ul style="text-align: left; list-style: none; padding: 0 1rem; line-height: 2;">
+                            <li>💎 <strong>Planeación conjunta del evento</strong></li>
+                            <li>💎 Stand Premium en zona de experiencia</li>
+                            <li>💎 Logo en pantalla principal y todo material</li>
+                            <li>💎 <strong>400 Entradas</strong> de cortesía</li>
+                            <li>💎 Reporte detallado de métricas de impacto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: VINCULACIÓN 2 (PILOTO) -->
+        <section id="slide-7" class="slide">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h2>Tecnología para la Equidad <br><span style="color: var(--color-green);">Plan Piloto 250
+                                Familias</span></h2>
+                        <p>Llevar la plataforma Helpy a población vulnerable o priorizada por la Fundación Sofía Pérez
+                            de Soto.</p>
+
+                        <div
+                            style="background: white; padding: 2rem; border-radius: 16px; margin-top: 2rem; box-shadow: var(--shadow);">
+                            <h3 style="color: var(--color-pink); margin-bottom: 1rem;">Mecánica del Impacto</h3>
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 0.8rem;">🎯 <strong>Acceso Premium:</strong> 250 licencias
+                                    completas.</li>
+                                <li style="margin-bottom: 0.8rem;">⏳ <strong>Duración:</strong> 2 meses de
+                                    acompañamiento intensivo.</li>
+                                <li style="margin-bottom: 0.8rem;">🧠 <strong>IA Aplicada:</strong> Diagnóstico de
+                                    necesidades en tiempo real.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="glass-card floating">
+                            <h3 style="font-size: 4rem; color: var(--color-green); line-height: 1;">$1.000</h3>
+                            <p style="margin-bottom: 0.5rem;">Pesos COP por usuario</p>
+                            <p style="font-size: 0.8rem; color: #999;">(A partir de 10k usuarios)</p>
+                            <div style="margin-top: 1.5rem; border-top: 1px solid #eee; padding-top: 1.5rem;">
+                                <p style="font-weight: bold;">Democratizamos el acceso a especialistas de primer nivel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: MATCH PERFECTO -->
+        <section id="slide-8" class="slide bg-gradient">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container text-center">
+                <h2>Por Qué Somos el Aliado Perfecto</h2>
+                <p style="margin-bottom: 4rem;">Juntos podemos llevar prevención a los rincones de Antioquia donde los
+                    especialistas no pueden llegar presencialmente.</p>
+
+                <div
+                    style="display: flex; justify-content: center; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div class="match-circle floating">
+                        <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación"
+                            style="height: 60px; margin-bottom: 1rem; opacity: 0.8;">
+                        <h3>Fundación</h3>
+                        <p style="font-size: 0.9rem;">"Educar para el progreso"<br>"Conectar para multiplicar"</p>
+                    </div>
+
+                    <div class="match-connector"></div>
+
+                    <div class="match-circle floating delay-1">
+                        <img src="logo_helpy.png" alt="Helpy" style="height: 40px; margin-bottom: 1rem;">
+                        <h3>Helpy</h3>
+                        <p style="font-size: 0.9rem;">"Educación masiva"<br>"Conexión digital escalable"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: CTA -->
+        <section id="slide-9" class="slide">
+            <div class="slide-header">
+                <img src="logo_helpy.png" alt="Helpy">
+                <img src="logos start y ongoing/fundacion sofia perez de soto Logo.png" alt="Fundación">
+            </div>
+            <div class="container text-center">
+                <h1 style="font-size: 3rem;">"La vida no tiene botón para posponer. Actuemos hoy."</h1>
+
+                <div class="glass-card"
+                    style="display: inline-block; margin-top: 3rem; text-align: left; padding-right: 5rem;">
+                    <h3 style="margin-bottom: 1.5rem;">Próximos Pasos</h3>
+                    <ol style="padding-left: 1.5rem; font-size: 1.25rem; line-height: 2;">
+                        <li>Selección de modalidad de vinculación (Diamante u Oro).</li>
+                        <li>Definición de población para el Piloto (250 familias).</li>
+                    </ol>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <p style="margin-bottom: 0.5rem; font-weight: bold;">Sofía Valencia & Eduardo Valencia</p>
+                    <p style="font-size: 0.9rem;">Co-Fundadores Helpy</p>
+                    <p style="color: var(--color-green); font-weight: bold;">+57 3232865148</p>
+
+                    <a href="mailto:eduardo@helpy.com" class="btn-cta">Iniciar Conversación</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Update active dot on scroll
+        const main = document.querySelector('main');
+        const dots = document.querySelectorAll('.dot');
+        const sections = document.querySelectorAll('section');
+
+        main.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (main.scrollTop >= (sectionTop - section.clientHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('href').includes(current)) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
